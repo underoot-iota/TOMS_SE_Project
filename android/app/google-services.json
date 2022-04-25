@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "927974020232",
+    "project_id": "toms-se-project",
+    "storage_bucket": "toms-se-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927974020232:android:24ac94a65f3b315bd37b3d",
+        "android_client_info": {
+          "package_name": "com.example.toms_se_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927974020232-28kq5ar1vuoreqsgf5ag1eh7bi1dd8fb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh-QZHh_HMhxeIb3H1dCyTVJIXsebTCno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927974020232-28kq5ar1vuoreqsgf5ag1eh7bi1dd8fb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
