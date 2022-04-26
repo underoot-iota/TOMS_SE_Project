@@ -4,6 +4,7 @@ import 'package:toms_se_project/home.dart';
 import 'package:toms_se_project/profile.dart';
 
 List<Widget> screens = [home(), profile()];
+String current_user = '';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,7 +30,6 @@ class _MyAppState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: PageView(
         children: screens,
         controller: _pageController,
@@ -41,7 +41,6 @@ class _MyAppState extends State<HomePage> {
           );
         },
       ),
-
       bottomNavigationBar: SalomonBottomBar(
         currentIndex: _index,
         items: [
@@ -49,7 +48,6 @@ class _MyAppState extends State<HomePage> {
             icon: Icon(Icons.home),
             title: Text('Home'),
           ),
-          
           SalomonBottomBarItem(
             // selectedColor: Colors.amber,
             // unselectedColor: Colors.red,
@@ -57,7 +55,6 @@ class _MyAppState extends State<HomePage> {
             title: Text('Profile'),
           ),
         ],
-
         onTap: (index) {
           setState(() {
             _index = index;

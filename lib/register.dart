@@ -15,6 +15,7 @@ class _registerState extends State<register> {
   String email = '';
   String name = '';
   String phone_number = '';
+  String id = '';
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class _registerState extends State<register> {
                       hintText: "Name",
                     ),
                     onChanged: (value) {
-                      email = value;
+                      name = value;
                     },
                   ),
                 ),
@@ -75,7 +76,7 @@ class _registerState extends State<register> {
                       hintText: "ID",
                     ),
                     onChanged: (value) {
-                      email = value;
+                      id = value;
                     },
                   ),
                 ),
@@ -136,7 +137,7 @@ class _registerState extends State<register> {
                       hintText: "Phone Number",
                     ),
                     onChanged: (value) {
-                      password = value;
+                      phone_number = value;
                     },
                   ),
                 ),
@@ -153,8 +154,9 @@ class _registerState extends State<register> {
 
                 ElevatedButton(
                   onPressed: () async {
-                    String value = await register_user(email, password);
+                    String value = await register_user(email, password,phone_number,name,id);
                     if (value == 'true') {
+                      current_user = email;
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(

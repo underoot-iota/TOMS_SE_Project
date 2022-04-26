@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:toms_se_project/home_page.dart';
 import 'package:toms_se_project/login.dart';
 
 class profile extends StatefulWidget {
@@ -29,6 +31,27 @@ class _profileState extends State<profile> {
             ),
           ),
         ],
+      ),
+      body: StreamBuilder<QuerySnapshot>(
+        stream:
+            FirebaseFirestore.instance.collection('user_profile').where('email',isEqualTo: current_user).snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return CircularProgressIndicator();
+          } else {
+            return ListView.builder(
+              itemCount: snapshot.data!.docs.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: ListTile(
+                    title: Text(snapshot.data!.docs[index]['name']),
+                    trailing: Text(snapshot.data!.docs[index]['id']),
+                  ),
+                );
+              },
+            );
+          }
+        },
       ),
     );
   }

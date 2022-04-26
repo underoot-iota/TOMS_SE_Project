@@ -94,6 +94,7 @@ class _loginState extends State<login> {
                   onPressed: () async {
                     String value = await signin(email, password);
                     if (value == 'true') {
+                      current_user = email;
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
