@@ -33,8 +33,10 @@ class _profileState extends State<profile> {
         ],
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream:
-            FirebaseFirestore.instance.collection('user_profile').where('email',isEqualTo: current_user).snapshots(),
+        stream: FirebaseFirestore.instance
+            .collection('user_profile')
+            .where('email', isEqualTo: current_user)
+            .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return CircularProgressIndicator();
@@ -42,11 +44,57 @@ class _profileState extends State<profile> {
             return ListView.builder(
               itemCount: snapshot.data!.docs.length,
               itemBuilder: (context, index) {
-                return Card(
-                  child: ListTile(
-                    title: Text(snapshot.data!.docs[index]['name']),
-                    trailing: Text(snapshot.data!.docs[index]['id']),
-                  ),
+                return Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(25.0),
+                      child: Table(
+                        border: TableBorder.all(),
+                        children: [
+                      TableRow(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Name"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(snapshot.data!.docs[index]['name']),
+                        ),
+                      ]),
+                      TableRow(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("ID"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(snapshot.data!.docs[index]['id']),
+                        ),
+                      ]),
+                                      TableRow(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Email ID"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(snapshot.data!.docs[index]['email']),
+                        ),
+                      ]),
+                                      TableRow(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Phone Number"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(snapshot.data!.docs[index]['phone_number']),
+                        ),
+                      ]),
+                        ],
+                      ),
+                    ),
+                  ],
                 );
               },
             );

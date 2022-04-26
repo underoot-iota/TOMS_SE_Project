@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:toms_se_project/admin_home_page.dart';
 import 'package:toms_se_project/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:toms_se_project/register.dart';
+import 'package:toms_se_project/set_values.dart';
+import 'admin_home.dart';
 import 'login.dart';
 
 void main()async {
@@ -21,7 +24,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Poppins',
       ),
-      home: login(),
+      // home: login(),
+      home: admin_home_page(),
     );
   }
 }
