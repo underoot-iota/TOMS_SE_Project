@@ -156,7 +156,7 @@ class _registerState extends State<register> {
                   onPressed: () async {
                     String value = await register_user(email, password,phone_number,name,id);
                     if (value == 'true') {
-                      current_user = email;
+                      current_email = email;
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(

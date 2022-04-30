@@ -4,7 +4,7 @@ import 'package:toms_se_project/admin_home.dart';
 import 'package:toms_se_project/admin_profile.dart';
 
 
-List<Widget> screens = [admin_home(), admin_profile()];
+List<Widget> screens = [admin_home(mq2: 1,ntu: 1,), admin_profile()];
 String current_user = '';
 
 

@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:toms_se_project/admin_home.dart';
+import 'package:toms_se_project/admin_home_page.dart';
+
+  double curr_mq2_value = 0, curr_ntu_value = 0;
+  double mq2_value = 0, ntu_value = 0;
 
 class set_values extends StatefulWidget {
   const set_values({Key? key}) : super(key: key);
@@ -9,8 +14,6 @@ class set_values extends StatefulWidget {
 
 class _set_valuesState extends State<set_values> {
 
-  double mq2_value = 1.0;
-  double ntu_value = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +24,6 @@ class _set_valuesState extends State<set_values> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
-
               Container(
                 width: 240,
                 height: 166,
@@ -60,7 +61,6 @@ class _set_valuesState extends State<set_values> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-
                     Slider(
                       value: mq2_value,
                       max: 5.0,
@@ -74,13 +74,21 @@ class _set_valuesState extends State<set_values> {
                     ),
                   ],
                 ),
-
               ),
-
               SizedBox(
-                height: 32,
+                height: 16,
               ),
-
+              Text(
+                'Current MQ2 threshold: ${curr_mq2_value.toStringAsFixed(1)}',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff444444),
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
               Container(
                 width: 240,
                 height: 166,
@@ -118,26 +126,45 @@ class _set_valuesState extends State<set_values> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-
                     Slider(
                       value: ntu_value,
                       max: 900,
                       divisions: 900,
                       // label: ntu_value.round().toString(),
                       onChanged: (double value) {
-                        setState(() {
-                          ntu_value = value;
-                        },);
+                        setState(
+                          () {
+                            ntu_value = value;
+                          },
+                        );
                       },
                     ),
                   ],
                 ),
               ),
-
-              SizedBox(height: 60,),
-
+              SizedBox(
+                height: 16,
+              ),
+              Text(
+                'Current NTU threshold: ${curr_ntu_value.toStringAsFixed(0)}',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff444444),
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    curr_mq2_value = mq2_value;
+                    curr_ntu_value = ntu_value;
+                  });
+                  // print(mq2_value);
+                  // print(curr_mq2_value);
+                },
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: 16, horizontal: 75),
@@ -152,8 +179,6 @@ class _set_valuesState extends State<set_values> {
                   ),
                 ),
               ),
-
-
             ],
           ),
         ),

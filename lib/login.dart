@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toms_se_project/admin_home_page.dart';
 import 'package:toms_se_project/functions.dart';
 import 'package:toms_se_project/home_page.dart';
 import 'package:toms_se_project/register.dart';
@@ -94,13 +95,23 @@ class _loginState extends State<login> {
                   onPressed: () async {
                     String value = await signin(email, password);
                     if (value == 'true') {
-                      current_user = email;
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: ((context) => HomePage()),
-                        ),
-                      );
+                      String isAdmin = await isadmin(email);
+                      current_email = email;
+                      if (isAdmin == 'Admin') {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => admin_home_page()),
+                          ),
+                        );
+                      } else {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => HomePage()),
+                          ),
+                        );
+                      }
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

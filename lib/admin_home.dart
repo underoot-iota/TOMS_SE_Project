@@ -1,14 +1,42 @@
+import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:toms_se_project/set_values.dart';
+import 'functions.dart';
 
 class admin_home extends StatefulWidget {
-  const admin_home({Key? key}) : super(key: key);
+  double mq2;
+  double ntu;
+  admin_home({
+    required this.mq2,
+    required this.ntu,
+  });
 
   @override
   State<admin_home> createState() => _admin_homeState();
 }
 
+// double random(min, max) {
+//   return min + Random().nextInt(max - min);
+// }
+
+Random random = new Random();
+
 class _admin_homeState extends State<admin_home> {
+  Timer? timer;
+  @override
+  void initState() {
+    timer = Timer.periodic(
+      Duration(seconds: 10),
+      (timer) {
+        widget.mq2 = random.nextDouble() * 5;
+        widget.ntu = random.nextDouble()*900;
+        setState(() {});
+      },
+    );
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +83,7 @@ class _admin_homeState extends State<admin_home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            mq2_value.toStringAsFixed(1),
+                            widget.mq2.toStringAsFixed(1),
                             style: TextStyle(
                                 fontSize: 40,
                                 fontWeight: FontWeight.w600,
@@ -93,7 +121,7 @@ class _admin_homeState extends State<admin_home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '420',
+                            widget.ntu.toStringAsFixed(0),
                             style: TextStyle(
                                 fontSize: 40,
                                 fontWeight: FontWeight.w600,

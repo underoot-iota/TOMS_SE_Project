@@ -4,7 +4,7 @@ import 'package:toms_se_project/home.dart';
 import 'package:toms_se_project/profile.dart';
 
 List<Widget> screens = [home(), profile()];
-String current_user = '';
+String current_email = '';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
