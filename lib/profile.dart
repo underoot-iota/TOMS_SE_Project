@@ -41,7 +41,7 @@ class _profileState extends State<profile> {
           if (!snapshot.hasData) {
             return CircularProgressIndicator();
           } else {
-            print(snapshot.data!.docs[0]['name']);
+            // print(snapshot.data!.docs[0]['name']);
             return ListView.builder(
               itemCount: snapshot.data!.docs.length,
               itemBuilder: (context, index) {

@@ -3,6 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:toms_se_project/set_values.dart';
 import 'functions.dart';
+import 'login.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class admin_home extends StatefulWidget {
   double mq2;
@@ -30,11 +34,35 @@ class _admin_homeState extends State<admin_home> {
       Duration(seconds: 10),
       (timer) {
         widget.mq2 = random.nextDouble() * 5;
-        widget.ntu = random.nextDouble()*900;
+        widget.ntu = random.nextDouble() * 900;
         setState(() {});
+        if (widget.mq2 > curr_mq2_value) {
+          sendNotif();
+        }
       },
     );
     super.initState();
+  }
+
+  Future<void> sendNotif() async {
+    Uri url = Uri.parse("https://fcm.googleapis.com/fcm/send");
+    String? token = await FirebaseMessaging.instance.getToken();
+    Map<String, dynamic> m = {
+      "to": "/topics/system",
+      "notification": {
+        "body": "High MQ2 Value",
+        "title": "Alert",
+      },
+      "body": "High MQ2 Value",
+      "title": "Alert",
+      "mutable_content": true,
+      "sound": "Tri-tone"
+    };
+    var resp = await http.post(url, body: jsonEncode(m), headers: {
+      "Authorization":
+          "key=AAAA2A-P1Ig:APA91bH6CbWf7Af1ateT9Pyumcw8pnH4IqrwPMxW5ShUrfuEhAxQ8vuxO0Afpl4WzJPbQZeqTQZa_BioatLkBv7mS-mkpcZZurWLKDHlD4hF2jZFHFSvpEdo92YjGKhqIKWOUtmm_JzA",
+      "Content-Type": "application/json"
+    });
   }
 
   @override
@@ -42,6 +70,21 @@ class _admin_homeState extends State<admin_home> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => login()),
+                ),
+              );
+            },
+            icon: Icon(
+              Icons.logout,
+            ),
+          ),
+        ],
       ),
       body: Center(
         child: Container(
