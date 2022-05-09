@@ -10,7 +10,7 @@
 - Download TOMS.apk file
 - Install APK file on an Android Device with Android version 5.0.1 or above
 
-         OR
+     OR
          
 - Setup Flutter Environment [https://docs.flutter.dev/get-started/install]
 - Clone the project (https://github.com/underoot-iota/TOMS_SE_Project.git)
