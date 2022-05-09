@@ -7,9 +7,10 @@
 
 
 ## Development Tools
-- Android 5.0.1 or above
-- Android Studio
+- Flutter
 - Firebase
+- Android Studio
+- VS Code
 
 
 # Demo :
@@ -20,9 +21,9 @@
 
 [Presentation](https://docs.google.com/presentation/d/1HjcjKibOTe0e8UI8xzbZ7puzJu4PIhfAO_eHErjIFLM/edit?usp=sharing)
 
+
 ## System Requirements
-- Android Operating System: any
-- Android 5.0.1 preferred
+- Android Device with Android version 5.0.1 or above
 
 
 
