@@ -56,11 +56,13 @@ class _MyAppState extends State<HomePage> {
           ),
         ],
         onTap: (index) {
-          setState(() {
-            _index = index;
-            _pageController.animateToPage(index,
-                duration: Duration(milliseconds: 500), curve: Curves.ease);
-          });
+          setState(
+            () {
+              _index = index;
+              _pageController.animateToPage(index,
+                  duration: Duration(milliseconds: 500), curve: Curves.ease);
+            },
+          );
         },
       ),
     );

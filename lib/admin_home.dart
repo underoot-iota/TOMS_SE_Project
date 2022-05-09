@@ -39,6 +39,9 @@ class _admin_homeState extends State<admin_home> {
         if (widget.mq2 > curr_mq2_value) {
           sendNotif();
         }
+        if (widget.ntu > curr_ntu_value) {
+          sendNotif1();
+        }
       },
     );
     super.initState();
@@ -54,6 +57,27 @@ class _admin_homeState extends State<admin_home> {
         "title": "Alert",
       },
       "body": "High MQ2 Value",
+      "title": "Alert",
+      "mutable_content": true,
+      "sound": "Tri-tone"
+    };
+    var resp = await http.post(url, body: jsonEncode(m), headers: {
+      "Authorization":
+          "key=AAAA2A-P1Ig:APA91bH6CbWf7Af1ateT9Pyumcw8pnH4IqrwPMxW5ShUrfuEhAxQ8vuxO0Afpl4WzJPbQZeqTQZa_BioatLkBv7mS-mkpcZZurWLKDHlD4hF2jZFHFSvpEdo92YjGKhqIKWOUtmm_JzA",
+      "Content-Type": "application/json"
+    });
+  }
+
+  Future<void> sendNotif1() async {
+    Uri url = Uri.parse("https://fcm.googleapis.com/fcm/send");
+    String? token = await FirebaseMessaging.instance.getToken();
+    Map<String, dynamic> m = {
+      "to": "/topics/system",
+      "notification": {
+        "body": "High NTU Value",
+        "title": "Alert",
+      },
+      "body": "High NTU Value",
       "title": "Alert",
       "mutable_content": true,
       "sound": "Tri-tone"
