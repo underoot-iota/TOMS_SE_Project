@@ -29,11 +29,11 @@
 
 # Demo :
 
-[Demo Video](https://www.youtube.com/watch?v=MgSAHk1NLWw)
+[Demo Video](https://www.youtube.com/watch?v=-6nRRWBimOc&ab_channel=Shantanu)
 
 # Presentation :
 
-[Presentation](https://docs.google.com/presentation/d/1HjcjKibOTe0e8UI8xzbZ7puzJu4PIhfAO_eHErjIFLM/edit?usp=sharing)
+[Presentation](https://docs.google.com/presentation/d/1_2ABjuCbcsMMtsUiFYnM7JflunNNo0PvzIPIGzWBh1c/edit#slide=id.p)
 
 
 ## System Requirements
