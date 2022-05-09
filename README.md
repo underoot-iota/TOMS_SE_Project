@@ -6,6 +6,20 @@
  The toilet will be equipped with turbidity and gas sensors that monitor water quality and smell respectively. The turbidity sensor is measured in Nephelometric Turbidity unit (NTU) where high NTU value indicates the water is dirty, whereas the gas sensor (MQ2) detects the foul smell with high output voltage, and later sends a signal to the system to compare with the hygiene threshold and accordingly send the message/ email to the staff regarding the toilet being unhygienic and require immediate cleaning.
 
 
+## How to run?
+- Download TOMS.apk file
+- Install APK file on an Android Device with Android version 5.0.1 or above
+
+         OR
+         
+- Setup Flutter Environment [https://docs.flutter.dev/get-started/install]
+- Clone the project (https://github.com/underoot-iota/TOMS_SE_Project.git)
+- Open the project in VS Code or Android Studio
+- Open terminal
+- Run 'flutter pub get'
+- Run 'Main.dart' in emulator
+
+
 ## Development Tools
 - Flutter
 - Firebase
