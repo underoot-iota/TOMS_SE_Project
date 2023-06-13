@@ -33,7 +33,7 @@
 
 # Presentation :
 
-[Presentation](https://docs.google.com/presentation/d/1_2ABjuCbcsMMtsUiFYnM7JflunNNo0PvzIPIGzWBh1c/edit#slide=id.p)
+[Presentation](https://docs.google.com/presentation/d/1_2ABjuCbcsMMtsUiFYnM7JflunNNo0PvzIPIGzWBh1c/edit?usp=sharing)
 
 
 ## System Requirements
